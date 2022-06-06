@@ -127,30 +127,45 @@ class _RegistrationStepOneState extends State<RegistrationStepOne> {
                     builder: (context) => const BizLocation(),
                   ),
                 ),
-                child: Container(
-                  width: SizeConfig.screenWidth * 0.6,
-                  decoration: const BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
-                  alignment: Alignment.center,
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Text("Continue",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: getPropotionalScreenWidth(20),
-                        )),
-                  ),
+                child: const ContinueButton(
+                  title: "Continue",
                 ),
               ),
               const Spacer()
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ContinueButton extends StatelessWidget {
+  final String title;
+  const ContinueButton({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: SizeConfig.screenWidth * 0.6,
+      decoration: const BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
+        ),
+      ),
+      alignment: Alignment.center,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Text(title,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
+              fontSize: getPropotionalScreenWidth(20),
+            )),
       ),
     );
   }
