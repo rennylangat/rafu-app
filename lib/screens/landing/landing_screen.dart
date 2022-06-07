@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:rafu_app/screens/authentication/login/login_screen.dart';
 import 'package:rafu_app/screens/authentication/registration/resgistration_step_one.dart';
 import 'package:rafu_app/utils/colors.dart';
 import 'package:rafu_app/utils/size_config.dart';
@@ -83,11 +84,18 @@ class LandingPage extends StatelessWidget {
               SizedBox(
                 height: getProportionalScreenHeight(20),
               ),
-              Text(
-                "I Already have an account",
-                style: TextStyle(
-                    fontSize: getProportionalScreenHeight(16),
-                    color: kPrimaryColor),
+              GestureDetector(
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const LoginScreen(),
+                  ),
+                ),
+                child: Text(
+                  "I Already have an account",
+                  style: TextStyle(
+                      fontSize: getProportionalScreenHeight(16),
+                      color: kPrimaryColor),
+                ),
               ),
               SizedBox(
                 height: getProportionalScreenHeight(15),

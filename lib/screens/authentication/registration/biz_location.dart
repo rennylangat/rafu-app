@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rafu_app/screens/authentication/registration/enter_bix_location.dart';
+import 'package:rafu_app/screens/authentication/registration/enter_biz_location.dart';
 import 'package:rafu_app/utils/colors.dart';
 import 'package:rafu_app/utils/size_config.dart';
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rafu_app/screens/authentication/registration/resgistration_step_one.dart';
 import 'package:rafu_app/screens/authentication/registration/shelves_categories.dart';
 import 'package:rafu_app/utils/size_config.dart';
+import 'package:rafu_app/widgets/text_field.dart';
 
 class EnterBusinessLocation extends StatefulWidget {
   const EnterBusinessLocation({Key? key}) : super(key: key);
@@ -64,37 +65,8 @@ class _EnterBusinessLocationState extends State<EnterBusinessLocation> {
             SizedBox(
               height: getProportionalScreenHeight(5),
             ),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: "Moi Avenue, Bihi Towers",
-                hintStyle: TextStyle(
-                  fontSize: getPropotionalScreenWidth(14),
-                ),
-                filled: true,
-                fillColor: const Color(0xFFF1F1F1),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(Radius.circular(15)),
-                  borderSide: BorderSide(
-                    color: Colors.black.withOpacity(0.1),
-                    width: 0.1,
-                  ),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(Radius.circular(15)),
-                  borderSide: BorderSide(
-                    color: Colors.black.withOpacity(0.1),
-                    width: 0.1,
-                  ),
-                ),
-                contentPadding: const EdgeInsets.all(12.0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide(
-                    color: Colors.black.withOpacity(0.1),
-                    width: 0.1,
-                  ),
-                ),
-              ),
+            const EditTextField(
+              hintText: "Moi Avenue, Bihi Towers",
             ),
             SizedBox(
               height: getProportionalScreenHeight(32),
@@ -103,38 +75,7 @@ class _EnterBusinessLocationState extends State<EnterBusinessLocation> {
             SizedBox(
               height: getProportionalScreenHeight(5),
             ),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: "Stall H35",
-                hintStyle: TextStyle(
-                  fontSize: getPropotionalScreenWidth(14),
-                ),
-                filled: true,
-                fillColor: const Color(0xFFF1F1F1),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(Radius.circular(15)),
-                  borderSide: BorderSide(
-                    color: Colors.black.withOpacity(0.1),
-                    width: 0.1,
-                  ),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(Radius.circular(15)),
-                  borderSide: BorderSide(
-                    color: Colors.black.withOpacity(0.1),
-                    width: 0.1,
-                  ),
-                ),
-                contentPadding: const EdgeInsets.all(12.0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide(
-                    color: Colors.black.withOpacity(0.1),
-                    width: 0.1,
-                  ),
-                ),
-              ),
-            ),
+            const EditTextField(hintText: "Stall H35"),
             const Spacer(),
             Center(
               child: GestureDetector(

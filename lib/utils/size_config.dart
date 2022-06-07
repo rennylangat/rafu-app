@@ -4,7 +4,7 @@ class SizeConfig {
   static MediaQueryData _mediaQueryData = const MediaQueryData();
   static double screenHeight = 0;
   static double screenWidth = 0;
-  static Orientation orientation = Orientation.portrait;
+  static Orientation? orientation;
 
   void init(BuildContext context) {
     _mediaQueryData = MediaQuery.of(context);
@@ -15,11 +15,15 @@ class SizeConfig {
 }
 
 double getProportionalScreenHeight(double inputHeight) {
-  double screenHeight = SizeConfig.screenHeight;
-  return (inputHeight / 812.0) * screenHeight;
+  double screenHeight = SizeConfig.orientation == Orientation.portrait
+      ? SizeConfig.screenHeight
+      : SizeConfig.screenWidth;
+  return (inputHeight / screenHeight) * screenHeight;
 }
 
 double getPropotionalScreenWidth(double inputWidth) {
-  double screenWidth = SizeConfig.screenWidth;
-  return (inputWidth / 375.0) * screenWidth;
+  double screenWidth = SizeConfig.orientation == Orientation.portrait
+      ? SizeConfig.screenWidth
+      : SizeConfig.screenHeight;
+  return (inputWidth / screenWidth) * screenWidth;
 }
