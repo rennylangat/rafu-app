@@ -1,5 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:rafu_app/screens/authentication/registration/resgistration_step_one.dart';
+import 'package:rafu_app/screens/mainscreen/main_screen.dart';
 import 'package:rafu_app/utils/colors.dart';
 import 'package:rafu_app/utils/size_config.dart';
 import 'package:rafu_app/widgets/text_field.dart';
@@ -102,7 +105,58 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontSize: getProportionalScreenHeight(18),
                   ),
                 ),
-              )
+              ),
+              SizedBox(
+                height: getProportionalScreenHeight(50),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                            builder: (context) => const MainScreen()),
+                        (route) => false);
+                  },
+                  child: const ContinueButton(
+                    title: "Login",
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: getProportionalScreenHeight(30),
+              ),
+              Center(
+                child: RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      text: "Don't have an account? ",
+                      style: TextStyle(
+                        fontSize: getProportionalScreenHeight(15),
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black54,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "Register",
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const RegistrationStepOne(),
+                                ),
+                              );
+                            },
+                          style: TextStyle(
+                            color: kDarkGreenColor,
+                            fontSize: getProportionalScreenHeight(15),
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    )),
+              ),
             ],
           ),
         ),

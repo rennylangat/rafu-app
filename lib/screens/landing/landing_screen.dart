@@ -60,25 +60,8 @@ class LandingPage extends StatelessWidget {
                     ),
                   );
                 },
-                child: Container(
-                  width: SizeConfig.screenWidth * 0.7,
-                  decoration: const BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                  ),
-                  alignment: Alignment.center,
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Text(
-                      "Get started for Free!",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: getProportionalScreenHeight(16),
-                      ),
-                    ),
-                  ),
+                child: const ContinueButton(
+                  title: "Get started for Free!",
                 ),
               ),
               SizedBox(
