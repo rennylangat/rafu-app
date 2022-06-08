@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:rafu_app/screens/authentication/registration/resgistration_step_one.dart';
 import 'package:rafu_app/utils/colors.dart';
 import 'package:rafu_app/utils/size_config.dart';
 
-class ViewShop extends StatelessWidget {
+class ViewShop extends StatefulWidget {
   const ViewShop({Key? key}) : super(key: key);
 
+  @override
+  State<ViewShop> createState() => _ViewShopState();
+}
+
+class _ViewShopState extends State<ViewShop> {
+  bool _isItemConfirmed = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -195,7 +202,7 @@ class ViewShop extends StatelessWidget {
                     fontSize: getProportionalScreenHeight(24)),
               ),
               SizedBox(
-                height: getProportionalScreenHeight(236),
+                height: getProportionalScreenHeight(250),
                 child: ListView.builder(
                   itemCount: 4,
                   scrollDirection: Axis.horizontal,
@@ -242,13 +249,92 @@ class ViewShop extends StatelessWidget {
                                 height: getProportionalScreenHeight(90),
                               ),
                             ),
+                            Positioned(
+                              top: 145,
+                              left: 0,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Jojoba Oil",
+                                    style: TextStyle(
+                                      fontSize: getProportionalScreenHeight(12),
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: getProportionalScreenHeight(5),
+                                  ),
+                                  Text(
+                                    "Ksh. 650.00",
+                                    style: TextStyle(
+                                      fontSize: getProportionalScreenHeight(10),
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: getProportionalScreenHeight(5),
+                                  ),
+                                  Text(
+                                    "100 ml",
+                                    style: TextStyle(
+                                        fontSize:
+                                            getProportionalScreenHeight(10)),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 0,
+                              left: 10,
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    _isItemConfirmed = !_isItemConfirmed;
+                                  });
+                                },
+                                child: Container(
+                                  width: getPropotionalScreenWidth(130),
+                                  decoration: BoxDecoration(
+                                    color: _isItemConfirmed
+                                        ? Colors.white
+                                        : Colors.black,
+                                    border: _isItemConfirmed
+                                        ? Border.all(
+                                            color: Colors.black, width: 2)
+                                        : null,
+                                    borderRadius: BorderRadius.circular(6),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(6.0),
+                                    child: Text(
+                                      _isItemConfirmed
+                                          ? "Confirmed"
+                                          : "Confirm",
+                                      style: TextStyle(
+                                        color: _isItemConfirmed
+                                            ? Colors.black
+                                            : Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize:
+                                            getProportionalScreenHeight(13),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            )
                           ],
                         ),
                       ),
                     );
                   },
                 ),
-              )
+              ),
+              const Spacer(),
+              const Center(child: ContinueButton(title: "Accept Shop")),
+              const Spacer(),
             ],
           ),
         ),
