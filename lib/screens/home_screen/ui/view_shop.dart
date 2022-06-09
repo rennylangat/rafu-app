@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rafu_app/screens/authentication/registration/resgistration_step_one.dart';
+import 'package:rafu_app/screens/mainscreen/main_screen.dart';
 import 'package:rafu_app/utils/colors.dart';
 import 'package:rafu_app/utils/size_config.dart';
 
@@ -333,7 +334,20 @@ class _ViewShopState extends State<ViewShop> {
                 ),
               ),
               const Spacer(),
-              const Center(child: ContinueButton(title: "Accept Shop")),
+              Center(
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const MainScreen(
+                          ancestor: "invite",
+                        ),
+                      ),
+                    );
+                  },
+                  child: const ContinueButton(title: "Accept Shop"),
+                ),
+              ),
               const Spacer(),
             ],
           ),

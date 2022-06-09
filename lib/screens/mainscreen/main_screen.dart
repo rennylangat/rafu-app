@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:rafu_app/screens/chats/chat_screen.dart';
 import 'package:rafu_app/screens/home_screen/home_screen.dart';
+import 'package:rafu_app/screens/home_screen/ui/home_main.dart';
 import 'package:rafu_app/screens/notifications/notifications_screen.dart';
 import 'package:rafu_app/screens/profile/my_profile.dart';
 import 'package:rafu_app/screens/shops/my_shops.dart';
 import 'package:rafu_app/utils/colors.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  final String ancestor;
+  const MainScreen({Key? key, required this.ancestor}) : super(key: key);
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -23,7 +25,7 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     _pages = [
-      const HomeScreen(),
+      widget.ancestor == "login" ? const HomeScreen() : const HomeMainScreen(),
       const MyShopsScreen(),
       const NotificationsScreen(),
       const ChatScreen(),

@@ -115,7 +115,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   onTap: () {
                     Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(
-                            builder: (context) => const MainScreen()),
+                            builder: (context) => const MainScreen(
+                                  ancestor: "login",
+                                )),
                         (route) => false);
                   },
                   child: const ContinueButton(
